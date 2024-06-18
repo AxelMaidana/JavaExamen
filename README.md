@@ -316,7 +316,236 @@ public class Main {
 }
 
 ```
-    
+### EJERCICIOS DE PARCIAL
+
+### Código 1: Clase `Cuenta`
+
+```java
+javaCopiar código
+public class Cuenta {
+    private double saldo;
+
+    public Cuenta(double saldoInicial) {
+        saldo = saldoInicial;
+    }
+
+    public void depositar(double cantidad) {
+        saldo += cantidad;
+    }
+
+    public double obtenerSaldo() {
+        return saldo;
+    }
+}
+
+```
+
+### Pregunta 1
+
+¿Qué ocurrirá si intenta ejecutar el siguiente fragmento de código?
+
+```java
+javaCopiar código
+public class Banco {
+    public static void main(String[] args) {
+        Cuenta miCuenta = new Cuenta(1000);
+        miCuenta.saldo = 500; // Línea problemática
+        System.out.println(miCuenta.obtenerSaldo());
+    }
+}
+
+```
+
+### Opciones:
+
+- a. Se compilará, pero lanzará una excepción en tiempo de ejecución.
+- b. Se compilará y se ejecutará sin errores, imprimiendo 500.
+- c. Producirá un error de compilación debido a que el atributo saldo es privado.
+- d. Se ejecutará, pero imprimirá 1000.
+
+### Respuesta correcta:
+
+c. Producirá un error de compilación debido a que el atributo saldo es privado.
+
+---
+
+### Pregunta 2
+
+Imagina que tienes una clase llamada `Empleado` con los atributos `nombre` y `salario`. ¿Cuál de las siguientes opciones sería la mejor forma de inicializar el atributo `nombre` en el constructor de la clase?
+
+### Opciones:
+
+- a. `this.nombre = nombre;`
+- b. `Empleado.nombre = nombre;`
+- c. `nombre = this.nombre;`
+- d. `nombre = Empleado.nombre;`
+
+### Respuesta correcta:
+
+a. `this.nombre = nombre;`
+
+### Pregunta 3
+
+Supongamos que tienes una clase llamada `Círculo` que tiene un atributo `radio` y un método llamado `calcularÁrea()`. ¿Cuál sería la mejor forma de definir el atributo `radio` como privado y proporcionar acceso a él desde otros objetos?
+
+### Opciones:
+
+- a. Definir el atributo `radio` como público y acceder a él directamente desde otros objetos.
+- b. Definir el atributo `radio` como privado y proporcionar métodos de acceso `getRadio()` y `setRadio()`.
+- c. Definir el atributo `radio` como público y proporcionar métodos de acceso `getRadio()` y `setRadio()`.
+- d. Definir el atributo `radio` como protegido y permitir el acceso directo desde otros objetos.
+
+### Respuesta correcta:
+
+b. Definir el atributo `radio` como privado y proporcionar métodos de acceso `getRadio()` y `setRadio()`.
+
+---
+
+### Pregunta 4
+
+¿Cuál es la diferencia entre un Procedimiento y una Función?
+
+### Opciones:
+
+- a. Ninguno necesita retornar un valor siempre.
+- b. Solo la llamada a una función puede ser asignada a una variable.
+- c. El primero debe retornar un valor siempre.
+- d. Ambos pueden retornar un valor.
+- e. El segundo debe retornar un valor siempre.
+
+### Respuesta correcta:
+
+b. Solo la llamada a una función puede ser asignada a una variable.
+e. El segundo debe retornar un valor siempre.
+
+### Pregunta 5
+
+¿Cuáles de las siguientes afirmaciones corresponden a los métodos constructores?
+
+### Opciones:
+
+- a. Si no se implementa un constructor, no se pueden crear instancias.
+- b. El constructor tiene que tener el mismo nombre que la clase.
+- c. Se implementan para crear instancias con un estado coherente.
+- d. La clase solo puede tener un constructor.
+- e. Se puede utilizar el modificador de acceso `public`.
+
+### Respuesta correcta:
+
+b. El constructor tiene que tener el mismo nombre que la clase.
+c. Se implementan para crear instancias con un estado coherente.
+e. Se puede utilizar el modificador de acceso `public`.
+
+### Código 2: Clase `Vehiculo`
+
+```java
+javaCopiar código
+public class Vehiculo {
+    private String marca;
+    private int year;
+
+    public Vehiculo(String marca) {
+        this.marca = marca;
+        this.year = 2020; // Valor predeterminado
+    }
+
+    public Vehiculo(String marca, int year) {
+        this.marca = marca;
+        this.year = year;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public int getYear() {
+        return year;
+    }
+}
+
+```
+
+### Pregunta 6
+
+¿Cuál de las siguientes afirmaciones es verdadera respecto a los constructores y la creación de instancias en la clase `Vehiculo`? (Seleccione todas las opciones correctas)
+
+### Opciones:
+
+- a. `Vehiculo v2 = new Vehiculo("Honda", 2018);` usará el constructor sin parámetros.
+- b. `Vehiculo v1 = new Vehiculo("Toyota");` compilará y usará el constructor que establece `year` a un valor predeterminado.
+- c. `Vehiculo v1 = new Vehiculo("Toyota");` no compilará porque falta el segundo argumento.
+- d. `Vehiculo v2 = new Vehiculo("Honda", 2018);` compilará y usará el constructor con dos parámetros.
+
+### Respuesta correcta:
+
+b. `Vehiculo v1 = new Vehiculo("Toyota");` compilará y usará el constructor que establece `year` a un valor predeterminado.
+d. `Vehiculo v2 = new Vehiculo("Honda", 2018);` compilará y usará el constructor con dos parámetros.
+
+### Pregunta 7
+
+La función recursiva se compone de un caso base y de un caso recursivo.
+
+### Opciones:
+
+- ⬤ Verdadero
+- ◯ Falso
+
+### Respuesta correcta:
+
+Verdadero.
+
+---
+
+### Código 3: Clase `Animal`
+
+```java
+javaCopiar código
+public class Animal {
+    private String nombre;
+    private int edad;
+
+    public Animal(String nombre, int edad) {
+        this.nombre = nombre;
+        this.edad = edad;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public static void main(String[] args) {
+        Animal animal1 = new Animal("Gato", 3);
+        Animal animal2 = new Animal("Perro", 5);
+        System.out.println(animal1.getNombre() + " tiene " + animal1.getEdad() + " años.");
+        System.out.println(animal2.getNombre() + " tiene " + animal2.getEdad() + " años.");
+    }
+}
+
+```
+
+### Pregunta 8
+
+¿Cuál de las siguientes afirmaciones es correcta sobre cómo se crean las instancias de la clase `Animal`?
+
+### Opciones:
+
+- a. Las instancias de `Animal` se crean utilizando el constructor que toma dos parámetros.
+- b. Se deben pasar un nombre y una edad como parámetros al constructor.
+- c. Se pueden crear instancias de `Animal` sin pasar parámetros al constructor.
+- d. El constructor por defecto sin parámetros no está definido, por lo que no se puede usar.
+- e. Se puede crear instancia de `Animal` pasando solo el nombre como parámetro.
+
+### Respuesta correcta:
+
+a. Las instancias de `Animal` se crean utilizando el constructor que toma dos parámetros.
+b. Se deben pasar un nombre y una edad como parámetros al constructor.
+d. El constructor por defecto sin parámetros no está definido, por lo que no se puede usar.    
+
+
 
 ### Conclusión
 
