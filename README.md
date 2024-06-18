@@ -679,6 +679,466 @@ Se deben pasar un nombre y una edad al constructor por defecto sin parámetros n
 - Objeto
 - Mensaje
 
+---
+### CUESTIONARIOS PRACTICOS - POO
+
+### Ejercicio 1: Clases y Objetos
+
+```java
+class Coche {
+    String marca;
+    String modelo;
+    int año;
+
+    public Coche(String marca, String modelo, int año) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.año = año;
+    }
+
+    public void verAtributos() {
+        System.out.println("Marca: " + marca + ", Modelo: " + modelo + ", Año: " + año);
+    }
+
+    public static void main(String[] args) {
+        Coche coche = new Coche("Toyota", "Corolla", 2020);
+        coche.verAtributos();
+    }
+}
+
+```
+
+**Pregunta de Opción Múltiple: ¿Cuál es la salida del programa?**
+
+a) Marca: Toyota, Modelo: Corolla, Año: 2020
+
+b) Marca: Corolla, Modelo: Toyota, Año: 2020
+
+c) Marca: 2020, Modelo: Toyota, Año: Corolla
+
+d) Marca: Toyota, Modelo: 2020, Año: Corolla
+
+**Respuesta correcta: a) Marca: Toyota, Modelo: Corolla, Año: 2020**
+
+---
+
+### Ejercicio 2: Herencia
+
+```java
+class Persona {
+    String nombre;
+    int edad;
+
+    public Persona(String nombre, int edad) {
+        this.nombre = nombre;
+        this.edad = edad;
+    }
+
+    public void verAtributos() {
+        System.out.print("Nombre: " + nombre + ", Edad: " + edad);
+    }
+}
+
+class Empleado extends Persona {
+    double sueldo;
+
+    public Empleado(String nombre, int edad, double sueldo) {
+        super(nombre, edad);
+        this.sueldo = sueldo;
+    }
+
+    @Override
+    public void verAtributos() {
+        super.verAtributos();
+        System.out.println(", Sueldo: " + sueldo);
+    }
+
+    public static void main(String[] args) {
+        Empleado empleado = new Empleado("Juan", 30, 3000);
+        empleado.verAtributos();
+    }
+}
+
+```
+
+**Pregunta de Opción Múltiple: ¿Cuál es la salida del programa?**
+
+a) Nombre: Juan, Edad: 30, Sueldo: 3000
+
+b) Nombre: Juan, Edad: 30
+
+c) Sueldo: 3000
+
+d) Edad: 30, Nombre: Juan, Sueldo: 3000
+
+**Respuesta correcta: a) Nombre: Juan, Edad: 30, Sueldo: 3000**
+
+---
+
+### Ejercicio 3: Encapsulamiento
+
+```java
+class CuentaBancaria {
+    private double saldo;
+    String numeroCuenta;
+
+    public CuentaBancaria(String numeroCuenta, double saldoInicial) {
+        this.numeroCuenta = numeroCuenta;
+        this.saldo = saldoInicial;
+    }
+
+    public void depositar(double cantidad) {
+        saldo += cantidad;
+    }
+
+    public void retirar(double cantidad) {
+        if (saldo >= cantidad) {
+            saldo -= cantidad;
+        } else {
+            System.out.println("Saldo insuficiente.");
+        }
+    }
+
+    public void verSaldo() {
+        System.out.println("Saldo: " + saldo);
+    }
+
+    public static void main(String[] args) {
+        CuentaBancaria cuenta = new CuentaBancaria("123456789", 1000);
+        cuenta.depositar(500);
+        cuenta.retirar(200);
+        cuenta.verSaldo();
+    }
+}
+
+```
+
+**Pregunta de Opción Múltiple: ¿Cuál es la salida del programa?**
+
+a) Saldo: 1000
+
+b) Saldo: 1300
+
+c) Saldo: 1500
+
+d) Saldo: 1200
+
+**Respuesta correcta: d) Saldo: 1300**
+
+---
+
+### Ejercicio 4: Polimorfismo
+
+```java
+import java.util.ArrayList;
+
+class Animal {
+    public void hacerSonido() {
+        System.out.println("Sonido de animal");
+    }
+}
+
+class Perro extends Animal {
+    @Override
+    public void hacerSonido() {
+        System.out.println("Guau");
+    }
+}
+
+class Gato extends Animal {
+    @Override
+    public void hacerSonido() {
+        System.out.println("Miau");
+    }
+}
+
+public class PolimorfismoDemo {
+    public static void main(String[] args) {
+        ArrayList<Animal> animales = new ArrayList<>();
+        animales.add(new Perro());
+        animales.add(new Gato());
+
+        for (Animal animal : animales) {
+            animal.hacerSonido();
+        }
+    }
+}
+
+```
+
+**Pregunta de Opción Múltiple: ¿Cuál es la salida del programa?**
+
+a) Sonido de animal
+
+b) Guau
+
+c) Guau Miau
+
+d) Miau
+
+**Respuesta correcta: c) Guau Miau**
+
+---
+
+### Ejercicio 5: Uso de this
+
+```java
+class Rectangulo {
+    int ancho;
+    int alto;
+
+    public Rectangulo(int ancho, int alto) {
+        this.ancho = ancho;
+        this.alto = alto;
+    }
+
+    public int calcularArea() {
+        return ancho * alto;
+    }
+
+    public static void main(String[] args) {
+        Rectangulo rectangulo = new Rectangulo(5, 3);
+        System.out.println("Área: " + rectangulo.calcularArea());
+    }
+}
+
+```
+
+**Pregunta de Opción Múltiple: ¿Cuál es la salida del programa?**
+
+a) Área: 15
+
+b) Área: 8
+
+c) Área: 10
+
+d) Área: 6
+
+**Respuesta correcta: a) Área: 15**
+
+---
+
+### Ejercicio 6: Sobrecarga de Métodos
+
+```java
+class Calculadora {
+    public int sumar(int a, int b) {
+        return a + b;
+    }
+
+    public int sumar(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    public int sumar(int a, int b, int c, int d) {
+        return a + b + c + d;
+    }
+
+    public static void main(String[] args) {
+        Calculadora calculadora = new Calculadora();
+        System.out.println("Suma de 2 números: " + calculadora.sumar(1, 2));
+        System.out.println("Suma de 3 números: " + calculadora.sumar(1, 2, 3));
+        System.out.println("Suma de 4 números: " + calculadora.sumar(1, 2, 3, 4));
+    }
+}
+
+```
+
+**Pregunta de Opción Múltiple: ¿Cuál es la salida del programa?**
+
+a) Suma de 2 números: 3 Suma de 3 números: 6 Suma de 4 números: 10
+
+b) Suma de 2 números: 3 Suma de 3 números: 5 Suma de 4 números: 8
+
+c) Suma de 2 números: 2 Suma de 3 números: 5 Suma de 4 números: 10
+
+d) Suma de 2 números: 3 Suma de 3 números: 6 Suma de 4 números: 9
+
+**Respuesta correcta: a) Suma de 2 números: 3 Suma de 3 números: 6 Suma de 4 números: 10**
+
+---
+
+### Ejercicio 7: Métodos Estáticos
+
+```java
+class Utilidades {
+    public static String convertirAMayusculas(String texto) {
+        return texto.toUpperCase();
+    }
+
+    public static void main(String[] args) {
+        String resultado = Utilidades.convertirAMayusculas("hola mundo");
+        System.out.println(resultado);
+    }
+}
+
+```
+
+**Pregunta de Opción Múltiple: ¿Cuál es la salida del programa?**
+
+a) hola mundo
+
+b) Hola Mundo
+
+c) HOLA MUNDO
+
+d) hola Mundo
+
+**Respuesta correcta: c) HOLA MUNDO**
+
+---
+
+### Ejercicio 8: Abstracción
+
+```java
+abstract class Figura {
+    public abstract double calcularArea();
+}
+
+class Circulo extends Figura {
+    private double radio;
+
+    public Circulo(double radio) {
+        this.radio = radio;
+    }
+
+    @Override
+    public double calcularArea() {
+        return Math.PI * radio * radio;
+    }
+}
+
+class Cuadrado extends Figura {
+    private double lado;
+
+    public Cuadrado(double lado) {
+        this.lado = lado;
+    }
+
+    @Override
+    public double calcularArea() {
+        return lado * lado;
+    }
+
+    public static void main(String[] args) {
+        Figura circulo = new Circulo(3);
+        Figura cuadrado = new Cuadrado(4);
+
+        System.out.println("Área del círculo: " + circulo.calcularArea());
+        System.out.println("Área del cuadrado: " + cuadrado.calcularArea());
+    }
+}
+
+```
+
+**Pregunta de Opción Múltiple: ¿Cuál es la salida del programa?**
+
+a) Área del círculo: 28.27 Área del cuadrado: 16
+
+b) Área del círculo: 18.84 Área del cuadrado: 8
+
+c) Área del círculo: 12.56 Área del cuadrado: 16
+
+d) Área del círculo: 9.42 Área del cuadrado: 20
+
+**Respuesta correcta: a) Área del círculo: 28.27 Área del cuadrado: 16**
+
+---
+
+### Ejercicio 9: Relaciones entre Clases
+
+```java
+class Cliente {
+    String nombre;
+    int edad;
+
+    public Cliente(String nombre, int edad) {
+        this.nombre = nombre;
+        this.edad = edad;
+    }
+
+    public String verAtributos() {
+        return "Nombre: " + nombre + ", Edad: " + edad;
+    }
+}
+
+class Pedido {
+    int numero;
+    Cliente cliente;
+
+    public Pedido(int numero, Cliente cliente) {
+        this.numero = numero;
+        this.cliente = cliente;
+    }
+
+    public void verDetalles() {
+        System.out.println("Pedido N°: " + numero);
+        System.out.println("Cliente: " + cliente.verAtributos());
+    }
+
+    public static void main(String[] args) {
+        Cliente cliente = new Cliente("Ana", 25);
+        Pedido pedido = new Pedido(123, cliente);
+        pedido.verDetalles();
+    }
+}
+
+```
+
+**Pregunta de Opción Múltiple: ¿Cuál es la salida del programa?**
+
+a) Pedido N°: 123 Cliente: Nombre: Ana, Edad: 25
+
+b) Pedido N°: 123 Cliente: Ana
+
+c) Pedido N°: 123 Edad: 25
+
+d) Pedido: 123 Cliente: Ana, 25
+
+**Respuesta correcta: a) Pedido N°: 123 Cliente: Nombre: Ana, Edad: 25**
+
+---
+
+### Ejercicio 10: Sobrescritura
+
+```java
+class Vehiculo {
+    public void mover() {
+        System.out.println("El vehículo se está moviendo");
+    }
+}
+
+class Coche extends Vehiculo {
+    @Override
+    public void mover() {
+        System.out.println("El coche se está moviendo");
+    }
+
+    public static void main(String[] args) {
+        Vehiculo vehiculo = new Vehiculo();
+        Vehiculo coche = new Coche();
+
+        vehiculo.mover();
+        coche.mover();
+    }
+}
+
+```
+
+**Pregunta de Opción Múltiple: ¿Cuál es la salida del programa?**
+
+a) El vehículo se está moviendo El vehículo se está moviendo
+
+b) El coche se está moviendo El coche se está moviendo
+
+c) El vehículo se está moviendo El coche se está moviendo
+
+d) El coche se está moviendo El vehículo se está moviendo
+
+**Respuesta correcta: c) El vehículo se está moviendo El coche se está moviendo**
+
+---
+
 ### Conclusión
 
 La POO es una forma poderosa y efectiva de organizar y estructurar el código, especialmente en proyectos grandes y complejos. Al centrarse en objetos que combinan datos y comportamientos, facilita la reutilización, el mantenimiento y la escalabilidad del software.
