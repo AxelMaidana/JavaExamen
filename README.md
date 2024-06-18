@@ -545,7 +545,139 @@ a. Las instancias de `Animal` se crean utilizando el constructor que toma dos pa
 b. Se deben pasar un nombre y una edad como parámetros al constructor.
 d. El constructor por defecto sin parámetros no está definido, por lo que no se puede usar.    
 
+---
 
+### Pregunta 1
+
+**Considere el siguiente código:**
+
+```java
+javaCopiar código
+public class Calculadora {
+    public int sumar(int a, int b) {
+        return a + b;
+    }
+
+    public int restar(int a, int b) {
+        return a - b;
+    }
+}
+
+public class Principal {
+    public static void main(String[] args) {
+        Calculadora calc = new Calculadora();
+        int resultado = calc.sumar(10, 5) - calc.restar(8, 3);
+        System.out.println("Resultado: " + resultado);
+    }
+}
+
+```
+
+**¿Qué imprimirá el método main?**
+
+- a. 7
+- b. 10 ✅
+- c. 5
+- d. 8
+
+**Respuesta correcta:** b. 10
+
+---
+
+### Pregunta 2
+
+**Indique qué sucede con el valor de una variable que se pasa como argumento por valor o por referencia a un método y se modifica dicho valor:**
+
+- [ ]  a. En el primer caso, la variable mantiene su valor original luego de finalizar el método.
+- [x]  b. En ambos casos, el valor original de la variable es modificado al finalizar el método.
+- [ ]  c. En el segundo caso, la variable mantiene su valor original luego de finalizar el método.
+- [ ]  d. En ambos casos, la variable mantiene su valor original luego de finalizar el método.
+
+**Respuesta incorrecta:** La respuesta correcta es: En el primer caso, la variable mantiene su valor original luego de finalizar el método.
+
+---
+
+### Pregunta 3
+
+**Indicar a qué tipo del recorrido de un árbol corresponde la siguiente proposición:**
+
+"Se etiquetan los nodos según su profundidad (nivel). Se recorren ordenados de menor a mayor nivel, a igualdad de nivel se recorren de izquierda a derecha."
+
+- a. Inorden
+- b. Por Niveles ✅
+- c. Postorden
+- d. Preorden
+
+**Respuesta correcta:** b. Por Niveles
+
+---
+
+### Pregunta 4
+
+**¿Cuál es la diferencia entre Clase y Objeto?**
+
+- [ ]  a. Si el primero es creado por el segundo, entonces se dice que este es una instancia del segundo.
+- [ ]  b. El segundo se utiliza para representar entidades o conceptos (sustantivos).
+- [x]  c. El segundo es una plantilla para la creación del primero según un modelo predefinido.
+- [x]  d. El segundo permite definir los valores de la estructura definida por el primero.
+- [x]  e. El primero es una plantilla para la creación del segundo según un modelo predefinido.
+- [ ]  f. Si el segundo es creado por el primero, entonces se dice que este es una instancia del primero.
+
+**Respuesta parcialmente correcta:** Las respuestas correctas son: El primero es una plantilla para la creación del segundo según un modelo predefinido, El segundo permite definir los valores de la estructura definida por el primero., Si el segundo es creado por el primero, entonces se dice que este es una instancia del primero.
+
+---
+
+### Pregunta 5
+
+**La parte pública de una clase se denomina interfaz.**
+
+Seleccione una:
+
+- [x]  Verdadero
+- [ ]  Falso
+
+**Respuesta correcta:** Verdadero
+
+---
+
+### Pregunta 6
+
+**Imagina que tienes creada una instancia de la clase llamada "Persona" llamada persona1, la clase cuenta con un método llamado "saludar()". ¿Cuál sería la forma correcta de llamar al método "saludar()" desde otra clase de la instancia creada?**
+
+- a. saludar();
+- b. Persona.saludar();
+- c. this.saludar();
+- d. persona1.saludar(); ✅
+
+**Respuesta correcta:** d. persona1.saludar();
+
+---
+
+### Pregunta 7
+
+**¿Cuál es la respuesta correcta?**
+
+Se deben pasar un nombre y una edad al constructor por defecto sin parámetros no está definido, por lo cual las instancias se crean utilizando el constructor que toma dos parámetros.
+
+- a. El constructor por defecto sin parámetros no está definido, por lo cual las instancias se crean utilizando el constructor que toma dos parámetros. ✅
+- b. Se debe pasar un nombre y una edad al constructor por defecto.
+- c. Se pueden crear instancias sin pasar parámetros.
+- d. Se debe pasar un nombre al constructor por defecto.
+- e. Se puede crear instancia de Animal pasando solo el nombre.
+
+**Respuesta correcta:** a. El constructor por defecto sin parámetros no está definido, por lo cual las instancias se crean utilizando el constructor que toma dos parámetros.
+
+---
+
+### Pregunta 8
+
+**Completar el siguiente gráfico según corresponda:**
+
+- Propiedad y comportamiento de un objeto concreto
+- Atributo
+- Lo que un objeto puede hacer
+- Objeto
+- Mensaje
 
 ### Conclusión
 
